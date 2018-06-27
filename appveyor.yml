@@ -1,0 +1,10 @@
+init:
+ - appveyor version
+ - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
+ - sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
+
+test_script:
+ - sh: [[ $- == *i* ]] && echo Interactive || echo Not interactive
+ - sh: shopt -q login_shell && echo Login shell || echo Not login shell
+
+build: off
